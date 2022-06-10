@@ -44,4 +44,30 @@ describe('<Event /> component', () => {
     EventWrapper.find('.btn-details').simulate('click');
     expect(EventWrapper.state('collapsed')).toBe(true);
   });
+
+  test('show correct event title', () => {
+    expect(EventWrapper.find('.title').text()).toEqual(mockData[0].summary);
+  });
+
+  test('show correct start-time', () => {
+    expect(EventWrapper.find('.start-time').text()).toEqual(
+      `${mockData[0].start.dateTime} ${mockData[0].start.timeZone}`
+    );
+  });
+
+  test('show correct event location', () => {
+    expect(EventWrapper.find('.location').text()).toEqual(mockData[0].location);
+  });
+
+  test('show event details if expanded', () => {
+    EventWrapper.setState({ collapsed: false });
+    expect(EventWrapper.find('.event-details').text()).toEqual(
+      mockData[0].description
+    );
+  });
+
+  test('show no event details if collapsed', () => {
+    EventWrapper.setState({ collapsed: true });
+    expect(EventWrapper.find('.event-details').text()).toEqual('');
+  });
 });
