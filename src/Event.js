@@ -18,19 +18,23 @@ class Event extends Component {
     }
   };
 
+  dateNewFormat = (eventDate) => {
+    const newDate = `${new Date(eventDate)}`;
+    return newDate;
+  };
+
   render() {
     const { event } = this.props;
+
     return (
       <div className="event">
         <h3 className="title">{event.summary}</h3>
-        <p className="start-time">
-          {event.start.dateTime} {event.start.timeZone}
-        </p>
+        <p className="start-time">{this.dateNewFormat(event.start.dateTime)}</p>
         <p className="location">{event.location}</p>
         <button className="btn-details" onClick={this.handleClick}>
           show details
         </button>
-        <div className="event-details">{this.showSummary()}</div>
+        <p className="event-details">{this.showSummary()}</p>
       </div>
     );
   }
