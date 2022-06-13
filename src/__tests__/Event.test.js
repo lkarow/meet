@@ -50,8 +50,9 @@ describe('<Event /> component', () => {
   });
 
   test('show correct start-time', () => {
+    const mockDataDateFormat = `${new Date(mockData[0].start.dateTime)}`;
     expect(EventWrapper.find('.start-time').text()).toEqual(
-      `${mockData[0].start.dateTime} ${mockData[0].start.timeZone}`
+      `${mockDataDateFormat}`
     );
   });
 
