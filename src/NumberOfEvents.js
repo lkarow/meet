@@ -8,17 +8,19 @@ class NumberOfEvents extends Component {
   handleInputChanged = (event) => {
     const value = event.target.value;
     if (!isNaN(value) && value >= 1) {
-      return this.setState({ numberOfEvents: value });
+      this.setState({ numberOfEvents: value });
     } else {
       console.log('Please enter a valid number.');
       return this.state.numberOfEvents;
     }
+    this.props.updateEvents(undefined, value);
   };
 
   render() {
     return (
-      <div>
-        <label for="events-number">Number of Events: </label>
+      <div className="numberOfEvents">
+        <label htmlFor="events-number">Number of Events: </label>
+        <br />
         <input
           type="text"
           id="events-number"
