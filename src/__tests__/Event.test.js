@@ -69,6 +69,6 @@ describe('<Event /> component', () => {
 
   test('show no event details if collapsed', () => {
     EventWrapper.setState({ collapsed: true });
-    expect(EventWrapper.find('.event-details').text()).toEqual('');
+    expect(EventWrapper.find('.event-details')).toEqual({});
   });
 });
