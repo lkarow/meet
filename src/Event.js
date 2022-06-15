@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { mockData } from './mock-data';
 
 class Event extends Component {
   state = {
@@ -10,12 +9,6 @@ class Event extends Component {
     this.state.collapsed
       ? this.setState({ collapsed: false })
       : this.setState({ collapsed: true });
-  };
-
-  showSummary = () => {
-    if (this.state.collapsed === false) {
-      return mockData[0].description;
-    }
   };
 
   dateNewFormat = (eventDate) => {
@@ -31,10 +24,12 @@ class Event extends Component {
         <h3 className="title">{event.summary}</h3>
         <p className="start-time">{this.dateNewFormat(event.start.dateTime)}</p>
         <p className="location">{event.location}</p>
+        {!this.state.collapsed && (
+          <p className="event-details">{event.description}</p>
+        )}
         <button className="btn-details" onClick={this.handleClick}>
           show details
         </button>
-        <p className="event-details">{this.showSummary()}</p>
       </div>
     );
   }
