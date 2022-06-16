@@ -50,7 +50,7 @@ This is a serverless, progressive web application (PWA) built with React using a
 
 #### Feature 3: Specify number of Events
 
-#### Scenario 1: When user hasn't specified a number, 32 is the default number
+##### Scenario 1: When user hasn't specified a number, 32 is the default number
 
 - Given the user is on the main page
 - When the user has not specified the numbers of events
