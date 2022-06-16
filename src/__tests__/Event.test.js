@@ -69,6 +69,16 @@ describe('<Event /> component', () => {
 
   test('show no event details if collapsed', () => {
     EventWrapper.setState({ collapsed: true });
-    expect(EventWrapper.find('.event-details')).toEqual({});
+    expect(EventWrapper.find('.event-details')).toHaveLength(0);
+  });
+
+  test('if event detail is collapsed name btn "show details"', () => {
+    EventWrapper.setState({ collapsed: true });
+    expect(EventWrapper.find('.btn-details').text()).toEqual('show details');
+  });
+
+  test('if event detail is expanded name btn "hide details"', () => {
+    EventWrapper.setState({ collapsed: false });
+    expect(EventWrapper.find('.btn-details').text()).toEqual('hide details');
   });
 });

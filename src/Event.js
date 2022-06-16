@@ -16,6 +16,14 @@ class Event extends Component {
     return newDate;
   };
 
+  changeBtnText = () => {
+    if (this.state.collapsed === true) {
+      return 'show details';
+    } else {
+      return 'hide details';
+    }
+  };
+
   render() {
     const { event } = this.props;
 
@@ -28,7 +36,7 @@ class Event extends Component {
           <p className="event-details">{event.description}</p>
         )}
         <button className="btn-details" onClick={this.handleClick}>
-          show details
+          {this.changeBtnText()}
         </button>
       </div>
     );
