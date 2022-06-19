@@ -88,3 +88,11 @@ This is a serverless, progressive web application (PWA) built with React using a
 
 - Javascript
 - React
+
+## Run the Project
+
+Use the command:
+
+```bash
+npm run start
+```
