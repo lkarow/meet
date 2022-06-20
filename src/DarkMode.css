@@ -1,9 +1,3 @@
-.dark-mode-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
 .toggle-theme {
   position: relative;
   display: inline-block;

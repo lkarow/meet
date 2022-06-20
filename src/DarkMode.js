@@ -36,7 +36,7 @@ const toggleTheme = (e) => {
 
 export function DarkMode() {
   return (
-    <div className="dark-mode-toggle2">
+    <div className="dark-mode-toggle">
       <label className="toggle-theme">
         <input
           type="checkbox"
