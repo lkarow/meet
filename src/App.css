@@ -64,7 +64,8 @@ label {
 }
 
 input[type='text'],
-input[type='number'] {
+input[type='number'],
+input:focus {
   background-color: var(--tertiary-color);
   color: var(--text-primary);
   padding: 8px 6px 8px 10px;
@@ -150,10 +151,10 @@ input[type='number'] {
   outline: none;
   cursor: pointer;
   background-color: var(--primary-color);
-  color: var(--secondary-color);
+  color: var(--background);
   font-size: 14px;
   font-weight: 700;
-  --color: var(--secondary-color);
+  --color: var(--background);
   overflow: hidden;
   border: 2px solid var(--primary-color);
   transition: color 0.5s;

@@ -35,7 +35,7 @@ class InfoAlert extends Alert {
     this.color = 'rgb(21, 63, 177)';
     this.backgroundColor = 'rgb(182, 215, 255)';
     this.borderRadius = '8px';
-    this.top = '120px';
+    this.top = '205px';
   }
 }
 
@@ -45,7 +45,7 @@ class ErrorAlert extends Alert {
     this.color = 'rgb(162, 22, 22)';
     this.backgroundColor = 'rgb(255, 202, 202)';
     this.borderRadius = '8px';
-    this.top = '200px';
+    this.top = '290px';
   }
 }
 
