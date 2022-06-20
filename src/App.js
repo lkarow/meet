@@ -3,6 +3,7 @@ import './App.css';
 import EventList from './EventList';
 import CitySerach from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import { DarkMode } from './DarkMode';
 import { extractLocations, getEvents } from './api';
 
 class App extends Component {
@@ -52,6 +53,7 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
+        <DarkMode />
         <EventList events={this.state.events} />
       </div>
     );
