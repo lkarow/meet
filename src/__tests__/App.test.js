@@ -6,6 +6,7 @@ import CitySearch from '../CitySearch';
 import NumberOfEvents from '../NumberOfEvents';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
+import { DarkMode } from '../DarkMode';
 
 describe('<App /> component', () => {
   let AppWrapper;
@@ -23,6 +24,10 @@ describe('<App /> component', () => {
 
   test('render NumberOfEvents', () => {
     expect(AppWrapper.find(NumberOfEvents)).toHaveLength(1);
+  });
+
+  test('render DarkMode', () => {
+    expect(AppWrapper.find(DarkMode)).toHaveLength(1);
   });
 });
 
