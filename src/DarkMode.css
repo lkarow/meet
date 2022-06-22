@@ -1,6 +1,7 @@
 .toggle-theme {
   position: relative;
   display: inline-block;
+  margin: 20px;
   height: 34px;
   width: 60px;
 }
