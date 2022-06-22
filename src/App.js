@@ -4,23 +4,35 @@ import EventList from './EventList';
 import CitySerach from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { DarkMode } from './DarkMode';
-import { extractLocations, getEvents } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { OfflineAlert } from './Alert';
+import WelcomeScreen from './WelcomeScreen';
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    showWelcomeScreen: undefined,
   };
 
-  componentDidMount() {
-    getEvents().then((events) => {
-      this.setState({ locations: extractLocations(events) });
-      this.setState({
-        events: events.slice(0, this.state.numberOfEvents),
+  async componentDidMount() {
+    this.mounted = true;
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({
+            events: events.slice(0, this.state.numberOfEvents),
+            locations: extractLocations(events),
+          });
+        }
       });
-    });
+    }
 
     if (!navigator.onLine) {
       this.setState({
@@ -54,6 +66,9 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className="App" />;
+
     return (
       <div className="App">
         <h1>Meet App</h1>
@@ -68,6 +83,10 @@ class App extends Component {
         />
         <DarkMode />
         <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={getAccessToken}
+        />
       </div>
     );
   }
