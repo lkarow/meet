@@ -8,7 +8,7 @@ class NumberOfEvents extends Component {
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-    if (!isNaN(value) && value >= 1 && value <= 32) {
+    if (!isNaN(value) && value >= 0 && value <= 32) {
       this.setState({ numberOfEvents: value, ErrorText: '' });
     } else {
       this.setState({ ErrorText: 'Please select a number from 1 to 32.' });
@@ -24,6 +24,7 @@ class NumberOfEvents extends Component {
         <input
           type="text"
           id="events-number"
+          autocomplete="off"
           value={this.state.numberOfEvents}
           onChange={this.handleInputChanged}
         />

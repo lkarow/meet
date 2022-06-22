@@ -43,6 +43,7 @@ class CitySerach extends Component {
           type="text"
           id="city-search"
           className="city"
+          autocomplete="off"
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => {
