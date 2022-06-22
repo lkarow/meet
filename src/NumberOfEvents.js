@@ -24,7 +24,7 @@ class NumberOfEvents extends Component {
         <input
           type="text"
           id="events-number"
-          autocomplete="off"
+          autoComplete="off"
           value={this.state.numberOfEvents}
           onChange={this.handleInputChanged}
         />
