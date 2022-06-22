@@ -16,7 +16,7 @@ const storedTheme = localStorage.getItem('theme');
 // Checking the user's browser settings for preferred color scheme
 const prefersDark =
   window.matchMedia &&
-  window.matchMedia('(prefers-color-scheme: dark)').matches;
+  window.matchMedia('(prefers-color-scheme: light)').matches;
 
 // Check localStorage and preferred color scheme and set to light mode if true
 const defaultDark =
@@ -28,9 +28,9 @@ if (defaultDark) {
 
 const toggleTheme = (e) => {
   if (e.target.checked) {
-    setDark();
-  } else {
     setLight();
+  } else {
+    setDark();
   }
 };
 
@@ -38,12 +38,7 @@ export function DarkMode() {
   return (
     <div className="dark-mode-toggle">
       <label className="toggle-theme">
-        <input
-          type="checkbox"
-          id="checkbox"
-          onChange={toggleTheme}
-          defaultChecked={defaultDark}
-        />
+        <input type="checkbox" id="checkbox" onChange={toggleTheme} />
         <div className="slider round"></div>
       </label>
     </div>
