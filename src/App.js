@@ -5,12 +5,14 @@ import CitySerach from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { DarkMode } from './DarkMode';
 import { extractLocations, getEvents } from './api';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    offlineText: '',
   };
 
   componentDidMount() {
@@ -20,6 +22,16 @@ class App extends Component {
         events: events.slice(0, this.state.numberOfEvents),
       });
     });
+
+    if (!navigator.onLine) {
+      this.setState({
+        offlineText: "Your're offline! The data was loaded from the cache.",
+      });
+    } else {
+      this.setState({
+        offlineText: '',
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -46,6 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Meet App</h1>
+        <OfflineAlert />
         <CitySerach
           locations={this.state.locations}
           updateEvents={this.updateEvents}
