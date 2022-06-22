@@ -55,7 +55,7 @@ class OfflineAlert extends Alert {
     this.color = 'rgb(255, 98, 0)';
     this.backgroundColor = 'rgb(202,202,202)';
     this.borderRadius = '8px';
-    this.top = '105px';
+    this.top = '90px';
   }
 }
 
