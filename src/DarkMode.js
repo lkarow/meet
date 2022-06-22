@@ -23,7 +23,7 @@ const defaultDark =
   storedTheme === 'dark' || (storedTheme === null && prefersDark);
 
 if (defaultDark) {
-  setLight();
+  setDark();
 }
 
 const toggleTheme = (e) => {
