@@ -4,13 +4,14 @@ import './nprogress.css';
 import { mockData } from './mock-data';
 
 export const checkToken = async (accessToken) => {
-  const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  )
-    .then((res) => res.json())
-    .catch((err) => err.json());
-
-  return result;
+  try {
+    const result = await fetch(
+      `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    );
+    return await result.json();
+  } catch (error) {
+    error.json();
+  }
 };
 
 const getToken = async (code) => {
