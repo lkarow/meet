@@ -84,6 +84,20 @@ This is a serverless, progressive web application (PWA) built with React using a
 - When the user has not searched for a city
 - Then a chart with the number of upcoming events will be displayed
 
+#### Feature 6: Select dark or light mode
+
+##### Scenario 1: Display the app in dark mode by default
+
+- Given that the user has not enabled browser settings for light mode
+- When the user has started the app
+- Then the app should be displayed in dark mode by default
+
+##### Scenario 2: User can change dark and light modes
+
+- Given the user has started the app
+- When the user clicks on the dark and light mode switch
+- Then the styling of the app will change the dark or light mode
+
 ## Built With
 
 - Javascript
