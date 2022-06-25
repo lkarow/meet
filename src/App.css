@@ -25,7 +25,6 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   text-align: center;
-  padding: 2% 5%;
 }
 
 .App * {
@@ -39,6 +38,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
   justify-content: center;
+  padding: 0% 4%;
 }
 
 ul {
