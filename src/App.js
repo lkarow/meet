@@ -81,17 +81,13 @@ class App extends Component {
 
   getData = () => {
     const { locations, events } = this.state;
-    console.log(locations);
-    console.log(events);
-
     const data = locations.map((location) => {
       const number = events.filter(
         (event) => event.location === location
       ).length;
-      const city = location.split(', ').shift();
+      const city = location.split(/[,-]/).shift();
       return { city, number };
     });
-    // console.log(data);
     return data;
   };
 
@@ -116,11 +112,11 @@ class App extends Component {
         <ResponsiveContainer height={400}>
           <ScatterChart margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="category" dataKey="city" name="city" />
+            <XAxis type="category" dataKey="city" name="City" />
             <YAxis
               type="number"
               dataKey="number"
-              name="number of events"
+              name="Number of events"
               allowDecimals={false}
             />
             <Tooltip cursor={{ strokeDasharray: '3 3' }} />
