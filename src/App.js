@@ -101,7 +101,7 @@ class App extends Component {
       showWelcomeScreen,
     } = this.state;
 
-    if (showWelcomeScreen === undefined) return <div className="App" />;
+    if (!showWelcomeScreen) return <div className="App" />;
 
     return (
       <div className="App">
@@ -141,9 +141,7 @@ class App extends Component {
         <EventList events={events} />
         <WelcomeScreen
           showWelcomeScreen={showWelcomeScreen}
-          getAccessToken={() => {
-            getAccessToken();
-          }}
+          getAccessToken={getAccessToken}
         />
       </div>
     );

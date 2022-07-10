@@ -16,7 +16,7 @@ const EventGenre = ({ events }) => {
       return data;
     };
 
-    setData(() => getData());
+    setData(getData());
   }, [events]);
 
   const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ba00fe'];

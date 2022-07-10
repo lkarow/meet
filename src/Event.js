@@ -6,9 +6,7 @@ class Event extends Component {
   };
 
   handleClick = () => {
-    this.state.collapsed
-      ? this.setState({ collapsed: false })
-      : this.setState({ collapsed: true });
+    this.setState({ collapsed: !this.state.collapsed });
   };
 
   dateNewFormat = (eventDate) => {
@@ -17,11 +15,7 @@ class Event extends Component {
   };
 
   changeBtnText = () => {
-    if (this.state.collapsed === true) {
-      return 'show details';
-    } else {
-      return 'hide details';
-    }
+    return `${this.state.collapsed ? 'show' : 'hide'} details`;
   };
 
   render() {

@@ -19,9 +19,7 @@ o.svg"
             />
           </div>
           <button
-            onClick={() => {
-              props.getAccessToken();
-            }}
+            onClick={props.getAccessToken}
             rel="nofollow noopener"
             className="btn-text"
           >
